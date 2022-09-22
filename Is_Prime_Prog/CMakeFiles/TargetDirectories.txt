@@ -1,0 +1,4 @@
+/home/huu-phuc-le/C-Plus-plus/Is_Prime_Prog/CMakeFiles/rebuild_cache.dir
+/home/huu-phuc-le/C-Plus-plus/Is_Prime_Prog/CMakeFiles/edit_cache.dir
+/home/huu-phuc-le/C-Plus-plus/Is_Prime_Prog/CMakeFiles/main.dir
+/home/huu-phuc-le/C-Plus-plus/Is_Prime_Prog/CMakeFiles/mysource.dir
