@@ -10,7 +10,7 @@ int main()
         std::cout << i;
         std::cout << " is a prime: ";
 
-        if (Is_Prime(i))
+        if (Is_Prime_faster(i))
             std::cout << "True" << std::endl;
         else
             std::cout << "False" << std::endl;
