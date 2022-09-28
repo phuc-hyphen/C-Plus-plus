@@ -7,8 +7,7 @@ int main()
     // std::vector<int> numbers;
     while (std::cin >> i)
     {
-        std::cout << i;
-        std::cout << " is a prime: ";
+        std::cout << i << " is a prime: ";
 
         if (Is_Prime_faster(i))
             std::cout << "True" << std::endl;
