@@ -1,6 +1,6 @@
 #include "sources.h"
 
-int i;
+long long i;
 bool Is_Prime(int i)
 {
     if (i < 2)
@@ -12,12 +12,12 @@ bool Is_Prime(int i)
     }
     return true;
 }
-bool Is_Prime_faster(int i)
+bool Is_Prime_faster(long long i)
 {
     if (i < 2 || i % 2 == 0)
         return false;
 
-    for (int j = 2; j <= ceil(sqrt(i)); j++)
+    for (long long j = 2; j <= ceil(sqrt(i)); j++)
     {
         if (i % j == 0)
             return false;

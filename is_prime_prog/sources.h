@@ -1,6 +1,6 @@
 #pragma once
 #include <math.h>
 
-extern int i;
+extern long long i;
 extern bool Is_Prime(int i);
-extern bool Is_Prime_faster(int i);
+extern bool Is_Prime_faster(long long i);

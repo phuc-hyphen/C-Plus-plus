@@ -23,8 +23,11 @@ Vector::Vector(std::initializer_list<value> cor_list)
     int count = 0;
     for (value i : cor_list)
     {
-        cor[count] = i;
-        count++;
+        if (count < NDIM)
+        {
+            cor[count] = i;
+            count++;
+        }
     }
 }
 Vector &Vector::operator+=(const Vector &rhs)
@@ -45,7 +48,7 @@ Vector Vector::operator+(const Vector &rhs)
     }
     return v;
 }
-Vector& Vector::operator-=(const Vector &rhs)
+Vector &Vector::operator-=(const Vector &rhs)
 {
     for (size_t i = 0; i < NDIM; i++)
     {
@@ -86,7 +89,7 @@ value &Vector::operator[](std::size_t index)
 {
     return this->cor[index];
 }
-Vector& Vector::operator*=(const value num)
+Vector &Vector::operator*=(const value num)
 {
     for (size_t i = 0; i < NDIM; i++)
     {
@@ -94,7 +97,7 @@ Vector& Vector::operator*=(const value num)
     }
     return *this;
 }
-Vector& Vector::operator+=(const value num)
+Vector &Vector::operator+=(const value num)
 {
     for (size_t i = 0; i < NDIM; i++)
     {
