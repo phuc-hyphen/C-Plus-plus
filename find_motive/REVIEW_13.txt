@@ -1,0 +1,17 @@
+============================== Code Review du groupe 13 ==============================
+
+I. Exercice : find_motive
+
+	1. Fichier : main.cpp
+	
+		a - A la Ligne 19, pas besoin d'utiliser la fonction "close()" car le fichier se ferme automatiquement lorsque l'on sort du scope de l'instruction "if(monflux)"
+	
+	2. Fichier : find_motive.cpp
+	
+		a - Mieux vaut découper les fonctions pour en faire des plus petits blocs de code et rendre la structure plus modulaire. Cela rendra votre code plus facile à comprendre lorsque vous ferez de la programmation orientée objet en c++.
+		b - La fonction "preTraitment()" n'est pas déclaré dans le fichier "find_motive.h".
+		c - Pensez à supprimer les blocs de code commentés et qui ne servent plus comme à la ligne 47 et 48 de la fonction "find_motive()" dans le fichier "find_motive.h".
+		d - Utilisez des nom de variable plus expressive que "x" et "y"
+	3 Fichier : find_motive.h
+		a - Les macros "#ifndef CPP_FIND_MOTIVE_H #define CPP_FIND_MOTIVE_H" peuvent être remplacé par "#progma once"
+		
