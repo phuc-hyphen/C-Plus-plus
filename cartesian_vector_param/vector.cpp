@@ -3,13 +3,15 @@
 std::ostream &operator<<(std::ostream &out, const Vector &rhs)
 {
     out << "{";
+    // os << rhs[i] << (i == NDIM- 1 ? "" : ",");
+
     for (size_t i = 0; i < NDIM; i++)
     {
         out << rhs.cor[i];
         if (i != NDIM - 1)
             out << ",";
     }
-    out << "}" << std::endl;
+    out << "}";
     return out;
 }
 Vector::Vector()
@@ -29,6 +31,8 @@ Vector::Vector(std::initializer_list<value> cor_list)
             count++;
         }
     }
+    for (size_t i = count; i < NDIM; i++)
+        cor[i] = 0;
 }
 Vector &Vector::operator+=(const Vector &rhs)
 {
@@ -87,8 +91,19 @@ value Vector::operator*(const Vector &rhs)
 }
 value &Vector::operator[](std::size_t index)
 {
+    if (index >= NDIM)
+        throw std::invalid_argument("Index out of Range");
     return this->cor[index];
 }
+
+value Vector::operator[](std::size_t index) const
+{
+    if (index >= NDIM)
+        throw std::invalid_argument("Index out of Range");
+
+    return this->cor[index];
+}
+
 Vector &Vector::operator*=(const value num)
 {
     for (size_t i = 0; i < NDIM; i++)

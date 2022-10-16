@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ostream>
+#include <stdexcept>
 
 #include "config.h"
 
@@ -31,6 +32,8 @@ public:
     Vector &operator*=(const value num);
 
     value &operator[](std::size_t index);
+    value operator[](std::size_t index) const;
+
 
     // More to go
 

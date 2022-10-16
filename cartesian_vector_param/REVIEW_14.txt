@@ -1,0 +1,24 @@
+============================== Code Review du groupe 14 ==============================
+
+
+REMARQUE: Gabriel, je ne trouve pas ton code sur ton github !!!
+
+
+I. Exercice : cartesian_vector_param
+
+	1. Fichier : Vector.h
+	
+		a - pour les attributes, tu n'as pas vraiment besoin d'utiliser le variable "size", car il est tous le temps fixé à NDIM (qui peut être modifié par le prof) 
+		
+		B - tu peux mettre également les non-memberfunctions dans la classe, c'est plus facile pour toi d'accéder à la taille du vecteur (je pense) 
+	
+	2. Fichier : Vector.cpp
+	
+		a - pour la ligne 19, il ne faut pas mettre size = size de initializer_list, car si la taille de initializer_list plus grand que NDIM, ça va faire heat buffer overflow !!
+			aussi pour la même function, il faut que tu gère le cas où on a moins d'élément d'initiale.
+			
+		b - pour la ligne 115, tu as 2 function identiques, je pense qu'un des deux doit censer faire += avec un vecteur ?
+
+THE END.
+		
+		

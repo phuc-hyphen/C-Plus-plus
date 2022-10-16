@@ -2,6 +2,7 @@
 #include <cstring> //strcmp
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 
 #include "vector.hh"
 
@@ -23,6 +24,8 @@ void testInit()
     t -= u;
     std::cout << t << '\n'; // {-2,-2}
     std::cout << t * 3 << '\n'; // {-6,-6}
+    std::cout << u <<'\n';
+    std::cout << v <<'\n';
     std::cout << u * v << '\n'; // 60
 }
 #elif NDIM == 3
