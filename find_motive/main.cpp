@@ -2,35 +2,12 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include <string.h>
 #include <regex>
-#include <sstream>
-
-bool contains(std::string str, std::string substr){
-        int i = 0;
-        int j = 0;
-        int save_j = j;
-        while(i < str.size() && j < substr.size()){
-            if (str[i] == substr[j])
-            {
-                save_j = j;
-                j++;
-            } else
-            {
-                    j = save_j;
-            }
-            i++;
-        }
-
-        if(j == substr.size())
-            return true;
-        return false;
-}
 
 void str_replace(std::string &str) {
-    for (int i = 0; i < str.size(); ++i) {
-        if (str[i] == '\n')
-            str[i] = ' ';
+    for (char & i : str) {
+        if (i == '\n')
+            i = ' ';
     }
 }
 
@@ -56,11 +33,10 @@ std::vector<std::string> tokenize(std::ifstream &ifs) {
     return v;
 }
 
-int find_motive(std::vector<std::string> v, std::string subStr){
+int find_motive(const std::vector<std::string>& v, const std::string& subStr){
     int count = 0;
-    for (int i = 0; i < v.size(); i++) {
-        bool b =  contains(v[i], subStr);
-        if (b == 1)
+    for (auto & i : v) {
+        if (i.find(subStr) != std::string::npos)
         {
             count++;
         }
