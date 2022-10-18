@@ -77,7 +77,7 @@ Vector Vector::operator*(const value num)
     {
         v.cor[i] = this->cor[i] * num;
     }
-    return *this;
+    return v;
 }
 
 value Vector::operator*(const Vector &rhs)
@@ -91,16 +91,17 @@ value Vector::operator*(const Vector &rhs)
 }
 value &Vector::operator[](std::size_t index)
 {
-    if (index >= NDIM)
-        throw std::invalid_argument("Index out of Range");
+    // if (index >= NDIM)
+    //     throw std::invalid_argument("Index out of Range");
+    assert(index < NDIM);
     return this->cor[index];
 }
 
 value Vector::operator[](std::size_t index) const
 {
-    if (index >= NDIM)
-        throw std::invalid_argument("Index out of Range");
-
+    // if (index >= NDIM)
+    //     throw std::invalid_argument("Index out of Range");
+    assert(index < NDIM);
     return this->cor[index];
 }
 
