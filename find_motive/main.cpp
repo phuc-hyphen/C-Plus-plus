@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <regex>
+#include <cstring>
 
 void str_replace(std::string &str) {
     for (char & i : str) {
