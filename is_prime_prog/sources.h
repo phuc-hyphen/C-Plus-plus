@@ -1,5 +1,7 @@
 #pragma once
 #include <math.h>
+#include <iostream>
+
 
 extern long long i;
 extern bool Is_Prime(int i);

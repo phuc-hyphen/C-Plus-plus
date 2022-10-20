@@ -39,7 +39,8 @@ public:
 
 private:
 // Private Member functions here (if necessary)
-
+    int size; 
+    std::unique_ptr<int[]> data;
 // Member variables are ALWAYS private, and they go here
 };
 
