@@ -32,7 +32,8 @@ Vector::Vector(std::initializer_list<value> l)
 Vector &Vector::operator=(const Vector &rhs)
 {
     if (rhs.v_size != v_size)
-        throw std::runtime_error("Incompatible size");
+        v_size = rhs.v_size;
+        // throw std::runtime_error("Incompatible size");
     for (size_t i = 0; i < rhs.v_size; i++)
         v_data[i] = rhs[i];
     return *this;
