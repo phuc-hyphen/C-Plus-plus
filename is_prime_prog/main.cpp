@@ -9,7 +9,7 @@ int main()
     {
         std::cout << i << " is a prime: ";
 
-        if (Is_Prime_faster(i))
+        if (Is_Prime_faster2(i))
             std::cout << "True" << std::endl;
         else
             std::cout << "False" << std::endl;
