@@ -23,17 +23,20 @@ Vector::Vector(size_t N)
 Vector::Vector(std::initializer_list<value> l)
 {
     v_size = l.size();
+
+    std::initializer_list<value>::iterator it;
     v_data = std::make_unique<int[]>(v_size);
+
     size_t count = 0;
-    for (value i : l)
-        v_data[count++] = i;
+    for (it = l.begin(); it != l.end(); ++it)
+        v_data[count++] = *it;
 }
 
 Vector &Vector::operator=(const Vector &rhs)
 {
     if (rhs.v_size != v_size)
         v_size = rhs.v_size;
-        // throw std::runtime_error("Incompatible size");
+    this->v_data = std::make_unique<value[]>(rhs.size());
     for (size_t i = 0; i < rhs.v_size; i++)
         v_data[i] = rhs[i];
     return *this;
