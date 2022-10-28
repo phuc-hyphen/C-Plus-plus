@@ -12,3 +12,5 @@ fi
 cd $DIR
 cmake ..
 make 
+chmod +x $auto_test
+
