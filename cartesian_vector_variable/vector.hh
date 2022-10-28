@@ -11,13 +11,13 @@ class Vector
 {
 public:
     // DO NOT CHANGE THIS
-    Vector(const Vector &);// copy constructor
-    Vector &operator=(const Vector &);// copy assignment
+    Vector(const Vector &); // copy constructor
+    Vector &operator=(const Vector &); // copy assignment
     ~Vector() = default;
     //
 
     // Add suitable constructors
-    // Vector(const Vector &rhs);  
+    // Vector(const Vector &rhs);
     Vector(size_t N);
     Vector(std::initializer_list<value> l);
 
@@ -32,17 +32,18 @@ public:
 
     Vector operator+(const Vector &rhs) const;
     Vector operator+(value v) const;
-    Vector operator-(const Vector &rhs);
+    // Vector operator-(const Vector &rhs);
     value operator*(const Vector &rhs) const;
     Vector operator*(value v) const;
+
     value &operator[](size_t idx);
     value operator[](size_t idx) const;
 
-    // Vector &operator=(const Vector &rhs); 
+    // Vector &operator=(const Vector &rhs);
 
 private:
     // Private Member functions here (if necessary)
-    size_t v_size;
+    size_t v_size=0;
     std::unique_ptr<value[]> v_data;
     // Member variables are ALWAYS private, and they go here
 };
