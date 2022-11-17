@@ -5,25 +5,17 @@
 template <class T>
 void my_selection_sort(T begin, T end)
 {
-    // begin++;
-
-    // *begin > *(end-1);
-    T st = begin;
-    T ed = end - 1;
-    while (st != end && ed != begin)
+    end--;
+    while (begin != end)
     {
-        T min = st;
-        T max = st;
-        for (T ptr = st; ptr != ed; st++)
+        T max = begin;
+        for (T st = begin; st != end; st++)
         {
-            if (*min > *st)
-                min = st;
             if (*max < *st)
                 max = st;
         }
-        std::swap(*min, *max);
-
-        st++;
-        ed--;
+        if (*max > *end)
+            std::swap(*max, *end);
+        end--;
     }
 }
