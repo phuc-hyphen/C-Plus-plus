@@ -28,12 +28,13 @@ void read_file_to_cont(std::ifstream &f, CONT c)
         std::cout << "Unable to open input file";
 }
 
-template <class CONT, class T>
+template <class CONT>
 void read_and_sort(std::ifstream &fi, std::ofstream &fo)
 {
     std::vector<std::string> cont;
     read_file_to_cont(fi, cont);
-
+    if (cont.size() < 2) //
+        return;
     auto c = CONT(cont.cbegin(), cont.cend());
 
     my_selection_sort(c.begin(), c.end());
@@ -56,6 +57,8 @@ void read_and_sort_decide_container(std::ifstream &fi, std::ofstream &fo)
 {
     std::vector<std::string> cont;
     read_file_to_cont(fi, cont);
+    if (cont.size() < 2) //
+        return;
     switch (*cont.begin())
     {
     case 'l': {
@@ -77,8 +80,10 @@ void read_and_sort_decide_valuetype(std::ifstream &fi, std::ofstream &fo)
 {
     std::vector<std::string> cont;
     read_file_to_cont(fi, cont);
-
-    switch (*cont.at(1))
+    if (cont.size() < 2) //
+        return;
+    const char *a = cont[0].c_str(); // sring to char array
+    switch (a[0])
     {
     case 'i': {
         read_and_sort_decide_container<int>(fi, fo);
@@ -92,7 +97,6 @@ void read_and_sort_decide_valuetype(std::ifstream &fi, std::ofstream &fo)
         read_and_sort_decide_container<float>(fi, fo);
         break;
     }
-
     case 'd': {
         read_and_sort_decide_container<double>(fi, fo);
         break;
