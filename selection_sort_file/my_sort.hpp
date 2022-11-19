@@ -5,7 +5,7 @@
 template <class T>
 void my_selection_sort(T begin, T end)
 {
-    T tmp = begin;
+    T tmp;
     end--;
     while (begin != end)
     {
@@ -20,8 +20,8 @@ void my_selection_sort(T begin, T end)
             *tmp = *max;
             *max = *end;
             *end = *tmp;
-        // std::swap(*max, *end);
         }
+        // std::swap(*max, *end);
         end--;
     }
 }
