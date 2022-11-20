@@ -5,7 +5,6 @@
 #include <list>
 #include <string>
 #include <vector>
-
 #include "my_sort.hpp"
 
 template <class CONT>
