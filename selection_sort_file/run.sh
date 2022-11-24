@@ -13,5 +13,5 @@ fi
 
 cd $DIR
 cmake ..
-make && ./main ../l_s.txt
+make && ./main ../v_i.txt
 
