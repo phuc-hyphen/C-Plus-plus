@@ -1,36 +1,97 @@
-// #include <concepts>
 #include <set>
-#include <type_traits>
-template <class CONT>
+#include <set>
 
+std::set<int> operator+(const std::set<int>& s1,const std::set<int>& s2)
+{
+    std::set<int> new_set;
+    for (auto s : s1)
+    {
+        new_set.insert(s);
+    }
+    for (auto s : s2)
+    {
+        new_set.insert(s);
+    }
+    return new_set;
+}
 
-template <class CONT>
-CONT CONT::operator+(const CONT &rhs) const
+std::set<int> operator-(const std::set<int>& s1,const std::set<int>& s2)
 {
-    auto v = CONT(vector_size);
-    for (size_t i = 0; i < vector_size; ++i)
+    std::set<int> new_set;
+    for (auto s : s1)
     {
-        v[i] = data[i] + rhs[i];
+        new_set.insert(s);
     }
-    return v;
+    for (auto s : s2)
+    {
+        new_set.erase(s);
+    }
+    return new_set;
 }
-Vector Vector::operator+(value v) const
+
+std::set<int> operator^(const std::set<int>& s1,const std::set<int>& s2)
 {
-    auto vec = Vector(vector_size);
-    for (size_t i = 0; i < vector_size; ++i)
+    std::set<int> new_set;
+    for (auto s : s1)
     {
-        vec[i] = data[i] + v;
+        new_set.insert(s);
     }
-    return vec;
+    for (auto s : s2)
+    {
+    	if (new_set.count(s) == 0)
+            new_set.insert(s);
+        else
+            new_set.erase(s);
+    }
+    return new_set;
 }
-value Vector::operator*(const Vector &rhs) const
+
+std::set<int> operator*(const std::set<int>& s1,const std::set<int>& s2)
 {
-    if (vector_size != rhs.size())
-        std::runtime_error("Vector not same size");
-    value product = 0;
-    for (size_t i = 0; i < vector_size; ++i)
+    std::set<int> new_set;
+    for (auto s : s1)
     {
-        product += data[i] * rhs[i];
+        for (auto sd : s2)
+        {
+    	    new_set.insert(s+sd);
+        }
     }
-    return product;
+    
+    return new_set;
+}
+
+std::set<int> operator^(const std::set<int>& s1,const int n)
+{
+    std::set<int> new_set = s1;
+    for(int i = 1; i < n; i++)
+        new_set = new_set * s1;
+    
+    return new_set;
+}
+
+std::set<std::string> operator*(const std::set<std::string>& s1,const std::set<std::string>& s2)
+{
+    std::set<std::string> new_set;
+    for (auto s : s1)
+    {
+        for (auto sd : s2)
+        {
+    	    new_set.insert(s+sd);
+        }
+    }
+    
+    return new_set;
+}
+
+std::set<std::string> operator^(const std::set<std::string>& s1,const int n)
+{
+    if(n < 0)
+        throw std::invalid_argument( "received negative value" );
+    if(n == 0)
+        return std::set<std::string>{""};
+    std::set<std::string> new_set = s1;
+    for(int i = 1; i < n; i++)
+        new_set = new_set * s1;
+    
+    return new_set;
 }
