@@ -34,18 +34,14 @@ void my_selection_sort(T begin, T end)
 template <class T, class SOR>
 void my_selection_sort(T begin, T end, SOR sort)
 {
-    std::cout << "my" << std::endl;
     end--;
     while (begin != end)
     {
         T max = begin;
         for (T st = begin; st != end; st++)
             if (sort(*max, *st))
-                // if (*max < *st)
                 max = st;
         if (sort(*end, *max))
-            // if (*max > *end)
-
             swap(*max, *end);
         end--;
     }
